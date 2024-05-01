@@ -1,5 +1,6 @@
 package sg.edu.np.mad.madpractical3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Random;
 
-import sg.edu.np.mad.madpractical3.R;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tvName = findViewById(R.id.textView); // Update to match the ID in your layout
         TextView tvDescription = findViewById(R.id.textView1); // Update to match the ID in your layout
         Button btnFollow = findViewById(R.id.button1);
+        Button btnMessaage = findViewById(R.id.button2);
 
         // Set the TextViews with the user's name, description and default button message
         tvName.setText(user.name);
@@ -63,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnMessaage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the MessageGroup activity
+                Intent intent = new Intent(MainActivity.this, MessageGroup.class);
+                startActivity(intent);
+            }
+        });
+
     }
     private String generateRandomNumber() {
         Random generator = new Random();
